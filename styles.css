@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --button-color: hsla(240, 100%, 50%, 0.582);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100vh;
+}
+
+
+/* side-bar */
+.side-bar {
+    padding: 1rem;
+    height: 100%;
+    background-color: hsl(120, 100%, 80%);
+    box-shadow: rgba(0, 0, 0, 0.45) 20px 0px 20px -20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#addBook {
+    margin-top: 20px;
+    background-color: var(--button-color);
+    padding: 10px 10px;
+    border: 0.5px solid lightblue;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#form {
+    background-color: whitesmoke;
+    border-radius: 6px;
+    border: 0.5px solid lightblue;
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+#form input {
+    margin-bottom: 0.8rem;
+    border-radius: 5px;
+    padding: 0.2rem;
+    margin-top: 2px;
+    border: 1px solid gray;
+}
+
+#form input[type="submit"] {
+    background-color: var(--button-color);
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 0.5px solid lightblue;
+    color: white;
+}
+
+#form legend {
+    margin: 0.5rem 0;
+    font-size: large;
+    font-weight: bold;
+}
+
+/* main */
+.main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    background-color: rgba(211, 211, 211, 0.295);
+    gap: 30px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 0.3px solid gray;
+    border-top: 10px solid var(--button-color);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
