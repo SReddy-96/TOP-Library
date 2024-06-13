@@ -1,12 +1,66 @@
+/* reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 * {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* End Reset */
+
+/* font */
+body {
+    font-family: "EB Garamond", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
 }
 
 :root {
     --button-color: hsla(240, 100%, 50%, 0.582);
+    --side-bar-color: hsl(120, 100%, 80%);
+    --card-color: hsl(0, 0%, 98%);
 }
+
 
 .container {
     display: grid;
@@ -19,7 +73,7 @@
 .side-bar {
     padding: 1rem;
     height: 100%;
-    background-color: hsl(120, 100%, 80%);
+    background-color: var(--side-bar-color);
     box-shadow: rgba(0, 0, 0, 0.45) 20px 0px 20px -20px;
     text-align: center;
     display: flex;
@@ -37,8 +91,9 @@
     cursor: pointer;
 }
 
-#form {
-    background-color: whitesmoke;
+/* form Div */
+#formDiv {
+    background-color: var(--card-color);
     border-radius: 6px;
     border: 0.5px solid lightblue;
     padding: 1rem;
@@ -47,7 +102,7 @@
     margin-top: 2rem;
 }
 
-#form input {
+#formDiv input {
     margin-bottom: 0.8rem;
     border-radius: 5px;
     padding: 0.2rem;
@@ -55,7 +110,7 @@
     border: 1px solid gray;
 }
 
-#form input[type="submit"] {
+#formDiv input[type="submit"] {
     background-color: var(--button-color);
     padding: 5px 10px;
     cursor: pointer;
@@ -63,7 +118,7 @@
     color: white;
 }
 
-#form legend {
+#formDiv legend {
     margin: 0.5rem 0;
     font-size: large;
     font-weight: bold;
@@ -73,19 +128,60 @@
 .main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, auto));
-    background-color: rgba(211, 211, 211, 0.295);
+    background-color: hsla(240, 100%, 99%, 0.582);
     gap: 30px;
     padding: 1rem;
     text-align: center;
+    overflow: auto;
 }
 
 .card {
-    background-color: white;
+    background-color: var(--card-color);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 0.3px solid gray;
-    border-top: 10px solid var(--button-color);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid hsla(0, 0%, 0%, 0.425);
+    border-left: 10px solid var(--button-color);
+    height: 275px;
+
+    /* create book look */
+    box-shadow: rgb(255, 255, 255) 5px 5px, hsla(0, 0%, 0%, 0.425) 6px 6px;
+
+    /* when deleting */
+    opacity: 1;
+    -webkit-transition: opacity 1000ms linear;
+    transition: opacity 1000ms linear;
+}
+
+/* card Buttons */
+.deleteButton,
+.readButton {
+    align-self: center;
+    width: 80px;
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 8px;
+    background-color: var(--side-bar-color);
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    color: black;
+    margin: 0.5rem;
+}
+
+.deleteButton:hover {
+    background-color: red;
+}
+
+.deleteButton:active {
+    background-color: var(--button-color);
+}
+
+.readButton:hover {
+    background-color: var(--button-color);
+    color: white;
+}
+
+.readButton:active {
+    background-color: var(--button-color);
 }
