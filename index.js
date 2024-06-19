@@ -1,23 +1,23 @@
 const myLibrary = [];
 
-// book constructor
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.numberOfPages = pages
-    this.readStatus = read
-}
+// book class
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.numberOfPages = pages
+        this.readStatus = read
+    }
 
-// prototype for changing read or not read
-Book.prototype.toggleRead = function () {
-    if (this.readStatus == "No") {
-        return this.readStatus = "Yes";
-    } else {
-        return this.readStatus = "No";
+    // method for changing read or not read
+    toggleRead =() => {
+        if (this.readStatus == "No") {
+            return this.readStatus = "Yes";
+        } else {
+            return this.readStatus = "No";
+        }
     }
 }
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     let button = this.getElementById('addBook');
@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
+// put the book on the page
 function LibraryToMain() {
     let main = document.getElementsByClassName("main")[0];
     main.innerHTML = '';  // reset main to not print out books again
@@ -74,7 +75,7 @@ function LibraryToMain() {
         // change button if read
         if (myLibrary[book].readStatus == "No") {
             readButton.innerText = "Read";
-        } else if(myLibrary[book].readStatus == "Yes"){
+        } else if (myLibrary[book].readStatus == "Yes") {
             readButton.innerText = "UnRead";
         }
 
@@ -92,7 +93,7 @@ function LibraryToMain() {
 
         readButton.addEventListener('click', function () {
             let bookId = this.dataset.id;
-            toggleRead(bookId);
+            changeRead(bookId);
         });
 
 
@@ -118,7 +119,7 @@ function addBookToLibrary() {
     LibraryToMain() // show books
 }
 
-function toggleRead(bookId) {
+function changeRead(bookId) {
     myLibrary[bookId].toggleRead();
     LibraryToMain();
 }
