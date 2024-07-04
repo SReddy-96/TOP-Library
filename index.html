@@ -22,7 +22,7 @@
             <h1>Library</h1>
             <button id="addBook">Add Book</button>
             <div id="formDiv">
-                <form action="" id="form">
+                <form id="form">
                     <legend>Add a Book</legend>
                     <label for="title">Title<span aria-label="required">*</span></label>
                     <input type="text" id="title" name="title" title="Please enter a Book Title"
@@ -34,7 +34,7 @@
 
                     <label for="pages">Number of Pages<span aria-label="required">*</span></label>
                     <input type="number" id="pages" name="pages" title="Please enter the amount of pages"
-                        placeholder="E.g. 250" required>
+                        placeholder="E.g. 250" required min="0">
 
 
                     <div class="radio">
